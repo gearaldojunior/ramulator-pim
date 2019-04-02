@@ -1,0 +1,13 @@
+PARAMETERS:
+*pim-cache-lines (one line is 64 bytes)
+*pim-org [inOrder | outOrder]
+*pim-core-count
+*trace_format = [pisa|zsim]
+*split-trace= [true|false] 
+*disable-perf-scheduling [true|false]
+
+- The split-trace parameter tells if thre is a single trace that should be read and distributed to the cores, or there is one trace file per core (saves memory utilization).
+- The disable-perf-scheduling parameters tells whether or not to use the perfect scheduling, where the instructions are distributed to the PIM Cores based on their memory address. 
+
+HOW TO RUN: 
+./ramulator --config HMC-Configs/HMiC-config.cfg --mode=cpu --stats stats.file.name --disable-perfect-scheduling true --trace trace.name --pim-cache-lines=512 --pim-org=inOrder --pim-core-count=16 --trace_format=pisa --split-trace=true
